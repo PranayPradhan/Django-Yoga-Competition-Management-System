@@ -1,0 +1,59 @@
+{% extends "dataentry/base.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+<div class="col-md-5">
+
+<div class="card shadow">
+
+<div class="card-header bg-success text-white">
+Score Entry For - {{ entry_type|upper }}
+</div>
+
+<div class="card-body">
+
+<p class="mb-3">
+<strong>Bib No:</strong> {{ bib_no }}
+</p>
+
+<form method="post">
+
+{% csrf_token %}
+
+<div class="mb-3">
+<label class="form-label">Score</label>
+
+<input type="number"
+       name="score"
+       step="0.01"
+       class="form-control"
+       value="{{ score }}"
+       autofocus
+       required>
+</div>
+
+<button type="submit" class="btn btn-success">
+Save
+</button>
+
+<button type="submit" name="cancel" class="btn btn-secondary">
+Cancel
+</button>
+
+</form>
+
+</div>
+</div>
+
+{% for message in messages %}
+<div class="alert alert-danger mt-3">
+{{ message }}
+</div>
+{% endfor %}
+
+</div>
+</div>
+
+{% endblock %}

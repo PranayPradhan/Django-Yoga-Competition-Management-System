@@ -1,0 +1,72 @@
+{% extends "masters/base.html" %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between mb-3">
+
+<h4>{{ title }}</h4>
+
+<a href="{% url 'masters:master_add' model_name %}"
+   class="btn btn-success">
+
+Add New
+
+</a>
+
+</div>
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<table class="table table-striped table-bordered">
+
+<thead class="table-dark">
+<tr>
+<th>Name</th>
+<th style="width:120px;">Action</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for obj in records %}
+<tr>
+<td>{{ obj.name }}</td>
+
+<td>
+<a href="{% url 'masters:master_edit' model_name obj.id %}"
+   class="btn btn-warning btn-sm">
+
+Edit
+
+</a>
+</td>
+
+</tr>
+
+{% empty %}
+
+<tr>
+<td colspan="2" class="text-center">
+No records found
+</td>
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<br>
+
+<a href="{% url 'masters:master_index' %}" class="btn btn-secondary">
+Back to Master Tables
+</a>
+
+{% endblock %}

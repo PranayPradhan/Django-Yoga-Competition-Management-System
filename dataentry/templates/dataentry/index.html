@@ -1,0 +1,57 @@
+{% extends "dataentry/base.html" %}
+
+{% block content %}
+
+<h3 class="mb-4">Score Data Entry</h3>
+
+<div>
+
+<div class="col-md-6 mb-3">
+<div class="card shadow-sm">
+<div class="card-body">
+
+<h5 class="card-title">Yoga Sub Category Score</h5>
+
+<p class="card-text">
+Enter scores for Yoga sub category participants.
+</p>
+
+<a href="{% url 'dataentry:yoga' %}" class="btn btn-primary">
+Open Score Data Entry
+</a>
+
+</div>
+</div>
+</div>
+
+<div class="col-md-6 mb-3">
+<div class="card shadow-sm">
+<div class="card-body">
+
+<h5 class="card-title">Champion of Champions</h5>
+
+<p class="card-text">
+Enter Champion of Champions scores.
+</p>
+
+<a href="{% url 'dataentry:coc' %}" class="btn btn-primary">
+Open COC Data Entry
+</a>
+
+</div>
+</div>
+</div>
+
+</div>
+
+<a href="{% url 'dashboard:index' %}" class="btn btn-secondary mt-3">
+Back to Home Page
+</a>
+
+{% for message in messages %}
+<div class="alert alert-success mt-3">
+{{ message }}
+</div>
+{% endfor %}
+
+{% endblock %}

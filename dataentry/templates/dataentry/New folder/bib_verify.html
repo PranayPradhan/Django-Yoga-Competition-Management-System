@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bib Verification</title>
+</head>
+<body>
+    <h2>Bib Number Verification</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Bib No:</label>
+        <input type="number" name="bib_no" autofocus required>
+
+        <button type="submit">Verify</button>
+        <a href="{% url 'dataentry:index' %}">Cancel</a>
+    </form>
+
+    {% for message in messages %}
+        <p style="color: red;">{{ message }}</p>
+    {% endfor %}
+</body>
+</html>

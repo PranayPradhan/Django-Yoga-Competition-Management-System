@@ -1,0 +1,41 @@
+{% extends "masters/base.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+<div class="col-md-6">
+
+<div class="card shadow">
+
+<div class="card-header bg-info text-white">
+{{ title }}
+</div>
+
+<div class="card-body">
+
+<form method="post">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button type="submit" class="btn btn-success">
+Save
+</button>
+
+<a href="{% url 'masters:master_index' %}" class="btn btn-secondary">
+Cancel
+</a>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

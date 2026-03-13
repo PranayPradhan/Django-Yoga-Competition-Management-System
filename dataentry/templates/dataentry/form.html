@@ -1,0 +1,68 @@
+{% extends "dataentry/base.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+<div class="col-md-6">
+
+<div class="card shadow">
+
+<div class="card-header bg-primary text-white">
+Score Entry
+</div>
+
+<div class="card-body">
+
+<form method="post">
+{% csrf_token %}
+
+<div class="mb-3">
+<label class="form-label">Bib No</label>
+
+<input type="text"
+       name="bib_no"
+       class="form-control"
+       value="{{ bib_no|default:'' }}"
+       {% if verified %}readonly{% endif %}>
+</div>
+
+<button type="submit"
+        name="verify"
+        class="btn btn-primary"
+        {% if verified %}disabled{% endif %}>
+Verify
+</button>
+
+<hr>
+
+<div class="mb-3">
+<label class="form-label">Score</label>
+
+<input type="text"
+       name="score"
+       class="form-control"
+       value="{{ score|default:0 }}"
+       {% if not verified %}disabled{% endif %}>
+</div>
+
+<button type="submit"
+        name="save"
+        class="btn btn-success"
+        {% if not verified %}disabled{% endif %}>
+Save
+</button>
+
+<a href="{% url 'dataentry:index' %}" class="btn btn-secondary">
+Cancel
+</a>
+
+</form>
+
+</div>
+</div>
+
+</div>
+</div>
+
+{% endblock %}

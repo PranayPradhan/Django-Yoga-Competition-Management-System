@@ -1,0 +1,49 @@
+{% extends "participant/base.html" %}
+{% block content %}
+
+<div class="row justify-content-center">
+
+<div class="col-md-6">
+
+<div class="card shadow">
+
+<div class="card-header bg-primary text-white">
+<h5 class="mb-0">{{ title }}</h5>
+</div>
+
+<div class="card-body">
+
+<form method="post">
+{% csrf_token %}
+
+<table class="table table-borderless">
+{{ form.as_table }}
+</table>
+
+<div class="mt-3">
+
+<button type="submit" class="btn btn-success">
+Save
+</button>
+
+<a href="{% url 'dashboard:index' %}" class="btn btn-secondary">
+Cancel
+</a>
+
+</div>
+
+</form>
+
+</div>
+</div>
+
+</div>
+</div>
+
+{% if form.errors.bib_no %}
+<script>
+document.getElementById("id_bib_no").focus();
+</script>
+{% endif %}
+
+{% endblock %}

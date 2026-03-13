@@ -1,0 +1,52 @@
+{% extends "dataentry/base.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+<div class="col-md-5">
+
+<div class="card shadow">
+
+<div class="card-header bg-primary text-white">
+Bib Number Verification
+</div>
+
+<div class="card-body">
+
+<form method="post">
+
+{% csrf_token %}
+
+<div class="mb-3">
+<label class="form-label">Bib No</label>
+<input type="number"
+       name="bib_no"
+       class="form-control"
+       autofocus
+       required>
+</div>
+
+<button type="submit" class="btn btn-success">
+Verify
+</button>
+
+<a href="{% url 'dataentry:index' %}" class="btn btn-secondary">
+Cancel
+</a>
+
+</form>
+
+</div>
+</div>
+
+{% for message in messages %}
+<div class="alert alert-danger mt-3">
+{{ message }}
+</div>
+{% endfor %}
+
+</div>
+</div>
+
+{% endblock %}

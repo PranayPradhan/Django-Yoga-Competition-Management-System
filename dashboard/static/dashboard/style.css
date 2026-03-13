@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.container{
+    width: 100%;
+    height: 1000vh;
+    background-color:blueviolet;
+    background-image: url(yoga-background.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+nav .logo{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 70px;
+    padding-left: 40px;
+}
+
+nav {
+    position: fixed;          /* ⬅️ key line */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: #063247;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+    opacity: 0.5;
+    z-index: 1000;            /* ⬅️ stay above page content */
+}
+
+
+nav ul{
+    margin-right: 30px;
+}
+
+nav ul li{
+    display: inline-block;
+}
+
+nav ul li a{
+    color: white;
+    display: block;
+    padding: 0 15px;
+    line-height: 70px;
+    font-size: 15px;
+    background: #063247;
+    transition: 0.5s;
+}
+
+nav ul ul{
+    position:absolute;
+    top: 85px;
+    border-top: 3px sold #23dbdb;
+    opacity: 0;
+}
+
+nav ul li:hover > ul{
+    top: 70px;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.3s linear;
+}
+
+nav ul ul li{
+    width: 350px;
+    display: list-item;
+    position: relative;
+    border: 2px solid #042331;
+}
+
+

@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>YCMS Dashboard</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+<link rel="stylesheet"
+href="{% static 'dashboard/style.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+<nav class="flex">
+
+<div class="logo">YCMS</div>
+
+<ul>
+
+{% if is_logged_in %}
+
+<!-- SCHOOL -->
+<li>
+<a href="#">School</a>
+<ul>
+<li><a href="{% url 'school:add' %}">Register School</a></li>
+<li><a href="{% url 'school:edit_index' %}">Edit School</a></li>
+<li><a href="{% url 'school:index' %}">List Registered Schools</a></li>
+</ul>
+</li>
+
+
+<!-- PARTICIPANTS -->
+<li>
+<a href="#">Participants</a>
+<ul>
+<li><a href="{% url 'participant:add' %}">Register Participants</a></li>
+<li><a href="{% url 'participant:edit_index' %}">Edit Participants</a></li>
+<li><a href="{% url 'participant:index' %}">List Registered Participants</a></li>
+</ul>
+</li>
+
+
+<!-- SCORE ENTRY -->
+<li>
+<a href="#">Score Data Entry</a>
+<ul>
+<li><a href="{% url 'dataentry:index' %}">Yoga Sub-Category</a></li>
+<li><a href="{% url 'dataentry:index' %}">Champion of Champions</a></li>
+</ul>
+</li>
+
+
+<!-- REPORTS -->
+<li>
+<a href="#">Reports</a>
+<ul>
+<li><a href="{% url 'report:index' %}">Event MC Call Sheets</a></li>
+<li><a href="{% url 'report:index' %}">Champion of Champions MC Call Sheets</a></li>
+<li><a href="{% url 'report:index' %}">Competition Results</a></li>
+</ul>
+</li>
+
+{% endif %}
+
+
+<!-- MASTER TABLES (ADMIN ONLY) -->
+{% if is_admin %}
+<li>
+<a href="#">Master Tables</a>
+<ul>
+<li><a href="{% url 'masters:master_index' %}">Master Tables - CRU</a></li>
+</ul>
+</li>
+{% endif %}
+
+
+<!-- SETTINGS (ADMIN ONLY) -->
+{% if is_admin %}
+<li>
+<a href="#">Settings</a>
+<ul>
+<li><a href="{% url 'setting:index' %}">Set Settings</a></li>
+</ul>
+</li>
+{% endif %}
+
+
+<!-- HELP (ALWAYS AVAILABLE) -->
+<li>
+<a href="#">Help</a>
+<ul>
+<li><a href="{% url 'help:index' %}">User Manual</a></li>
+</ul>
+</li>
+
+
+<!-- LOGIN -->
+{% if not is_logged_in %}
+<li>
+<a href="{% url 'dashboard:login' %}">Login</a>
+</li>
+{% endif %}
+
+
+<!-- LOGOUT -->
+{% if is_logged_in %}
+<li>
+<a href="{% url 'dashboard:logout' %}">Logout ({{ username }})</a>
+</li>
+{% endif %}
+
+</ul>
+
+</nav>
+
+</div>
+
+</body>
+</html>

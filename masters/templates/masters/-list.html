@@ -1,0 +1,18 @@
+{% extends "master/base.html" %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+
+<a href="{% url 'master_add' model_name %}">Add New</a>
+
+<ul>
+  {% for item in items %}
+    <li>
+      {{ item.name }}
+      <a href="{% url 'master_edit' model_name item.id %}">Edit</a>
+    </li>
+  {% empty %}
+    <li>No records</li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "setting/base.html" %}
+
+{% block content %}
+
+<h3 class="mb-4">Settings</h3>
+
+{% if setting %}
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<table class="table table-bordered table-striped">
+
+<thead class="table-dark">
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>YOB Min</td>
+<td>{{ setting.yob_min }}</td>
+</tr>
+
+<tr>
+<td>YOB Max</td>
+<td>{{ setting.yob_max }}</td>
+</tr>
+
+<tr>
+<td>Year of Championship</td>
+<td>{{ setting.yoc }}</td>
+</tr>
+</tbody>
+
+</table>
+
+<a href="{% url 'setting:edit' %}" class="btn btn-primary">
+Edit Settings
+</a>
+
+</div>
+
+</div>
+
+{% else %}
+
+<div class="alert alert-warning">
+No settings found.
+</div>
+
+<a href="{% url 'setting:edit' %}" class="btn btn-primary">
+Create Settings
+</a>
+
+{% endif %}
+
+<br>
+
+<a href="{% url 'dashboard:index' %}" class="btn btn-secondary">
+Back to Home Page
+</a>
+
+{% endblock %}
