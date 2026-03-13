@@ -1,5 +1,9 @@
 # Yoga Championship Management System (YCMS)
 
+## Live Demo
+
+https://pranaypradhan02.pythonanywhere.com/dashboard/
+
 ## 1. Description
 Django application to automate report generation required for smooth conduct of Inter-School Yoga Competition.
 
@@ -93,4 +97,3 @@ Part of a passion project to create software for educational purposes.
 - Some report rules are currently hardcoded and should move into Settings for flexibility.
 - Plain credential comparison is currently used in custom auth flow.
 - Additional automated tests can improve release confidence.
-- Planned deployment on PythonAnywhere; paste the live project URL in this README after deployment.
